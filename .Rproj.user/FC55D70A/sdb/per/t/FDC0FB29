@@ -1,0 +1,16 @@
+{
+    "contents" : "# History files\n.Rhistory\n.Rdata\n.Rproj\n.Rproj.user\ndmacro-examples.Rproj\n\n# Example code in package build process\n*-Ex.R\n\nThumbs.db\n",
+    "created" : 1390165967903.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3771401954",
+    "id" : "FDC0FB29",
+    "lastKnownWriteTime" : 1390165987,
+    "path" : "~/GitHub/dmacro-examples/.gitignore",
+    "project_path" : ".gitignore",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "text"
+}
