@@ -1,3 +1,10 @@
+---
+layout : page
+author : ricardo mayer
+---
+
+
+
 Introducing a basic ('toy') model
 ========================================================
 
