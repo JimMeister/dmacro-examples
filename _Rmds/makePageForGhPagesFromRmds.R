@@ -1,4 +1,4 @@
-myjekyllsite = c("http://ricardomayerb.github.io/qmacroexamples/")
+myjekyllsite = c("http://ricardomayerb.github.io/dmacro-examples/")
 
 KnitPost <- function(input, base.url = myjekyllsite) {
   require(knitr)
@@ -10,4 +10,4 @@ KnitPost <- function(input, base.url = myjekyllsite) {
   knit(input, envir = parent.frame())
 }
 
-KnitPost("./bgp-and-discount.Rmd")
+KnitPost("./Introduction_toy.Rmd")

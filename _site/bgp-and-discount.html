@@ -1,0 +1,70 @@
+<h1>Balanced Growth Path and productivity process</h1>
+
+<h2>Scaled versus original variables</h2>
+
+<p>Along a deterministic Balanced Growth Path, consumption, output, capital and investment growth at the same, and constant, rate than productivity, which we denote  $\mu_a$ . This justifies defining stationary modifications of those variable as follows:</p>
+
+<p>$$C<em>t := \frac{\tilde{C}</em>t}{A<em>{t-1}  }, \quad  K</em>t := \frac{\tilde{K}<em>t}{A</em>{t-1} }, \quad  I<em>t := \frac{\tilde{I}</em>t}{A<em>{t-1} }, \quad L</em>t := \tilde{L}_t$$</p>
+
+<p>At times we will refer to these scaled variables as the stationary variables. Here is a plot illustrating this</p>
+
+<p><img src="http://ricardomayerb.github.io/dmacro-examples/figs/bgp-and-discount/consumptionplot1.png" title="center" alt="center" style="display: block; margin: auto;" /><img src="http://ricardomayerb.github.io/dmacro-examples/figs/bgp-and-discount/consumptionplot2.png" title="center" alt="center" style="display: block; margin: auto;" /></p>
+
+<h2>BGP rates</h2>
+
+<p>Summary:
++ long run (net) growth must be zero for labor since is greater than zero and it&#39;s bounded
++ assume consumption-to-output is constant, that is they grow at the same rate
++ resource constraint implies that investment also growth to this common rate
++ capital accumulation equation implies capital also growth to this common rate
++ we can find this common rate (of output, consumption, investment and capital), in terms of the productivity growth,  using the equation for output.</p>
+
+<p>In a deterministic BGP , neutral productivity grows at a constant gross
+rate of $(1+\mu_a)$. The fraction of hours devoted to work is
+obviously bounded, so in a BGP it must be constant.</p>
+
+<p>Call $r<em>y$ the net growth rate and
+call $R</em>y := (1+r<em>y)$ to the gross growth rate of consumption and
+output. <em>Suppose, now, that in a BGP the fraction of total output
+devoted to consumption is constant</em>. The resource constraint (when binding) implies that investment, too,
+will grow at rate $R</em>y$ in a BGP :
+$$C<em>t + I</em>t = Y<em>t \quad \Rightarrow \quad  I</em>{t+1} = Y<em>{t+1} - C</em>{t+1} = R<em>y Y</em>{t} - R<em>y C</em>{t} = R<em>y (Y</em>{t} -  C<em>{t}) = R</em>y I<em>{t} = R</em>i I<em>{t} \Rightarrow R</em>i = R_y$$</p>
+
+<p>Call $R<em>k$ the gross growth rate of capital in a BGP. Since investment
+will grow at rate $R</em>y$,
+the law of motion of capital implies that
+$R<em>k =  R</em>y$
+$$K<em>{t+1} =  R</em>y  ~ K_t$$</p>
+
+<p>$$K<em>{t+1} = (1-\delta) K</em>{t} +    I<em>t$$
+$$\Rightarrow  K</em>{t+2} = (1-\delta) K<em>{t+1} +    I</em>{t+1}$$
+$$K<em>{t+1} R</em>k = (1-\delta)K<em>{t} R</em>k  +   I<em>{t} R</em>I $$
+$$K<em>{t+1}  = (1-\delta)K</em>{t}   +    I<em>{t} R</em>I  \frac{1}{R<em>k}$$
+$$\Rightarrow   \frac{R</em>I }{R<em>k} = 1$$
+$$\Rightarrow R</em>k = R<em>I  $$
+$$\Rightarrow R</em>k = R_y  $$</p>
+
+<p>Now that the growth rate of capital along the BGP ($R<em>k$) is written in
+terms of that of product ($R</em>y$) and since $R<em>L = 1$, we could solve
+$R</em>y$ in terms of the growth rate of productivity. Then, along the deterministic BGP:
+$$Y<em>t = A</em>{t}^{1-\alpha} K<em>t^{\alpha} L</em>t^{1-\alpha}$$
+$$Y<em>{t+1} = A</em>{t+1}^{1-\alpha} K<em>{t+1}^{\alpha} L</em>{t+1}^{1-\alpha}$$
+$$Y<em>{t} R</em>y = (1+\mu<em>a)^{1-\alpha} A</em>{t}^{1-\alpha} R<em>{k}^{\alpha} K</em>{t}^{\alpha} L<em>{t}^{1-\alpha}$$
+$$Y</em>{t} R<em>y = (1+\mu</em>a)^{1-\alpha} R<em>{k}^{\alpha} A</em>{t}^{1-\alpha}  K<em>{t}^{\alpha} L</em>{t}^{1-\alpha}$$
+$$Y<em>{t} R</em>y = (1+\mu<em>a)^{1-\alpha} R</em>{k}^{\alpha} Y<em>t \$$
+$$R</em>y = (1+\mu<em>a)^{1-\alpha} R</em>{k}^{\alpha}  \$$
+$$R<em>y = (1+\mu</em>a)^{1-\alpha} R<em>{y}^{\alpha}  \$$
+$$R</em>y^{1-\alpha}  = (1+\mu<em>a)^{1-\alpha}$$
+$$R</em>y  = (1+\mu_a) $$</p>
+
+<p>In conclusion, in a deterministic BGP, consumption, output, capital and investment grow at the same rate of TFP, while labor does not grow.</p>
+
+<p>Keep in mind that, excepting labor, we will be working with scaled variables. The actual variables will grow at the rate of the scaled ones plus the rate of growth of productivity. This can be deceiving: suppose that scaled investment goes down by 2\% in this current year, but if productivity has grown 2.7\%  in the same period, there is no invesment reduction, it went up by 0.7%</p>
+
+<h2>Subjective discount and growth rate</h2>
+
+<p>As I showed to you in the presentation of the model, we can treat the problem of maximizing the present value of utility as if defined on stationary variables only, but we need to ensure that subjective discounting is high enough to take care of the ever growing nature of consumption. We need that $\sum<em>{t=0}^{\infty}  \beta^t  \ln (A</em>{t-1}  )$ is bounded.</p>
+
+<p>Let&#39;s try different values of $\beta$ for $\mu_a=0.003$ and plot the cumulative sum in the deterministic case of $A$:</p>
+
+<p><img src="http://ricardomayerb.github.io/dmacro-examples/figs/bgp-and-discount/discountplot.png" title="center" alt="center" style="display: block; margin: auto;" /></p>
