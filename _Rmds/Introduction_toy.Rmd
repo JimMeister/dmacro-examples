@@ -17,7 +17,44 @@ In what follow, we will build, discuss and solve the simplest environment that c
 
 ## Further numerical examples on trend growth ##
 
-Let's kkep the focus on growth rates of 2\% and 4\% and doubling the current level of productivity
+Let's keep the focus on growth rates of 2\% and 4\% and doubling the current level of productivity.
+
+### Question: How different are trajectories at constant growth rates of 2 and 4 per cent? ###
+The direct approach would be to plot the level of productivity for each case, which corresponds to plot the function \( A_t = e^{\mu t} A_0 \) for \( \mu = 0.02  \) and \( \mu = 0.04\). However, I like to plot also the logartihm of productivity: \( \ln A_t = \mu t + \ln A_0 \) plots are no obscured by too high values, curves with the same growth rate are parallel and easy to spot and the math is slightly simpler. 
+
+Here is the plot in logs, where I also added a line at \(\log(2)\) which represent the double of the initial level of productivity (\(A_0=1, log(A_0)\)).
+
+```{r growth_2_4_log_plot, fig.align='center', echo=FALSE}
+finalT = 40
+xvals = 0:finalT
+level.start = 1
+level.target = 2*level.start
+base.rate = 0.02
+new.rate = 0.04
+
+rates_base = c(0,rep(base.rate, finalT))
+rates_new =  c(0,rep(new.rate, finalT))
+
+values.log.baserate = cumsum(rates_base) + log(level.start)
+values.log.newrate = cumsum(rates_new) + log(level.start)
+
+ts_log.baserate = as.ts(values.log.baserate, start=0)
+ts_log.newrate = as.ts(values.log.newrate, start=0)
+plot(cbind(ts_log.baserate,ts_log.newrate),
+     plot.type="single")
+abline(h=log(level.target) )
+```
+
+
+Now, the plot for levels (i.e. productivity level as an exponential function)
+```{r growth_2_4_level_plot, fig.align='center', echo=FALSE}
+plot(exp(cbind(ts_log.baserate,ts_log.newrate)),
+     plot.type="single")
+abline(h=level.target )
+```
+
+
+
 
 ### permanent change in tren growth from 2\% to 4\% ###
 
