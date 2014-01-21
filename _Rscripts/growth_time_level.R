@@ -94,7 +94,7 @@ plot(exp(cbind(ts_log.baserate,ts_log.newrate, ts_log.tempnewrate,
 abline(h=level.target )
 
 
-gr_rates = seq(0.01,0.06,0.01)
+gr_rates = seq(0.01,0.06,0.001)
 time_to_double = log(2)/gr_rates
 plot(gr_rates,time_to_double, type="l")
 
@@ -104,6 +104,14 @@ plot(gr_rates,factor_at_35_periods, type="l")
 
 
 factor_at_35_periods = exp(35*gr_rates)
+
+print(exp(values.log.baserate[36]))
+print(exp(values.log.tempnewrate[36]))
+print(exp(values.log.persistence_80[36]))
+print(exp(values.log.persistence_90[36]))
+print(exp(values.log.persistence_99[36]))
+print(exp(values.log.newrate[36]))
+
 
 
 # mu*t + lnA_0 = ln(2) + lnA_0
