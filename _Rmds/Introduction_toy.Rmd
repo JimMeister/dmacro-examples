@@ -19,4 +19,11 @@ In what follow, we will build, discuss and solve the simplest environment that c
 
 Let's kkep the focus on growth rates of 2\% and 4\% and doubling the current level of productivity
 
+### permanent change in tren growth from 2\% to 4\% ###
+
+### transitory versus permanent ### 
+
+### persistent versus permanent ###
+
+
 
