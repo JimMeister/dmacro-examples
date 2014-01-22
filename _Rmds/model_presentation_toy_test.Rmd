@@ -3,6 +3,13 @@ layout: page
 author: ricardo mayer
 ---
 
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });       
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full.js"></script>
+
+
+
 Toy model presentation
 ========================================================
 
@@ -14,37 +21,46 @@ This is the basic RBC model with endogenous labor and logarithmic preferences, w
 Preferences
 -----------
 
-\[
-\label{eq:toy_preferences}
+<div>
+\begin{equation}\label{eq:toy-preferences}
 E_0 \sum_{t=0}^{\infty}  \beta^t
 [ \nu \ln \tilde{C}_t + (1-\nu) \ln (1- \tilde{L}_t)]
-\]
+\end{equation}
+</div>
 
 The following, transformed, variables are stationary:
 
-\[
-\label{eq:toy_stationary_variables}
+<div>
+\begin{equation}
+\label{eq:toy-stationary-variables}
 C_t := \frac{\tilde{C}_t}{A_{t-1} }, \quad  K_t := \frac{\tilde{K}_t}{A_{t-1} }, \quad  I_t := \frac{\tilde{I}_t}{A_{t-1} }, \quad L_t := \tilde{L}_t
-\]
+\end{equation}
+</div>
 
 In terms of stationary consumption and labor:
 \[
 E_0 \sum_{t=0}^{\infty}  \beta^t
-[ \nu \ln (A_{t-1}  ) + \nu \ln C_t + (1-\nu) \ln (1-  L_t)]$$
-$$E_0 \sum_{t=0}^{\infty}  \beta^t
+[ \nu \ln (A_{t-1}  ) + \nu \ln C_t + (1-\nu) \ln (1-  L_t)]
+\]
+
+\[E_0 \sum_{t=0}^{\infty}  \beta^t
 [ \nu \ln C_t + (1-\nu) \ln (1-  L_t)] \, + \, \nu E_0 \sum_{t=0}^{\infty}  \beta^t  \ln (A_{t-1}  )
 \]
 
 Since the last term is finite,  finding the optimal plans of
-consumption and labor (i.e. $\tilde{C}$ and $\tilde{L}$) that maximize \ref{eq:toy_preferences},
+consumption and labor (i.e. $\tilde{C}$ and $\tilde{L}$) that maximize
+\eqref{eq:toy-preferences} ,
 it's equivalent to finding optimal plans of TFP-scaled consumption and
-labor ($C$ and $L$) that maximize \ref{eq:toy_preferences_stationary}
+labor ($C$ and $L$) that maximize \eqref{eq:toy-preferences-stationary}
 
-\[
-\label{eq:toy_preferences_stationary}
+<div>
+\begin{equation}
+\label{eq:toy-preferences-stationary}
  E_0 \sum_{t=0}^{\infty}  \beta^t
 [ \nu \ln C_t + (1-\nu) \ln (1-  L_t)]
-\]
+\end{equation}
+</div>
+
 
 Technology
 ----------
