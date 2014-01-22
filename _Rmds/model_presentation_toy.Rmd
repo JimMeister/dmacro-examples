@@ -10,16 +10,16 @@ author: ricardo mayer
 
 
 
-Toy model presentation
-========================================================
+# Toy model presentation #
+
 
 
 
 This is the basic RBC model with endogenous labor and logarithmic preferences, with two small additions regardig the productivity process. It's called basic because  many common modifications are absent: variable capital utilizacion, non-TFP (or non-labor) shocks, adjustment costs, imperfect information, multiple economic sectors, borrow constraints and imperfect information to name a few. The only non-basic feature is that the economy is non-stationary and there are permanent and transitory shocks not to the level of productivity but to its growth rate. .
 
 
-Preferences
------------
+## Preferences ##
+
 
 \[
 \begin{equation}\label{eq:toy-preferences}
@@ -96,7 +96,10 @@ A_{t+1}  =  & A_{t}~ e^{a_{t+1}},  \quad A_0 ~\text{given} \end{aligned}
 
 
 
+
 ### Signal and states of productivity
+
+What drives the evolution of productivity, given \(A_0\), it's the sequence of growth rates in times which we model as having a long run mean value \( \mu \) plus a persistent but stationary stochastic component \( \zeta_a \) and a purely transitoy stochastic component \( w_a \).
 
 \[
 \begin{align}
