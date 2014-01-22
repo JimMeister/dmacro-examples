@@ -62,8 +62,8 @@ labor ($C$ and $L$) that maximize \eqref{eq:toy-preferences-stationary}
 \end{equation}
 \]
 
-Technology
-----------
+## Technology ##
+
 
 \[
 \label{eq:toy_prod_tilde}
@@ -104,13 +104,13 @@ What drives the evolution of productivity, given \(A_0\), it's the sequence of g
 \[
 \begin{align}
 \mu_{a} & = \mu_{a} \\
-\zeta_{a,t+1} & = A_{\zeta_a} \zeta_{a,t} + C_{\zeta_a} w_{t+1} \label{eq:zetaa-evol} \\
+\zeta_{a,t+1} & = A_{\zeta_a} \zeta_{a,t} + \sigma_{\zeta_a} w_{\zeta_a, t+1} \label{eq:zetaa-evol} \\
 a_{t+1} & = \mu_{a} + \zeta_{a,t+1} + \sigma_{a} w_{a,t+1} \label{eq:signal_contemp_state}
 \end{align}
 \]
 
-
-
+Rewrite this using vector and matrices, which is more compact and able to 
+accomodate larger models:
 
 $$\begin{aligned}
 \label{eq:toy_z_s_contem_state}
@@ -121,10 +121,10 @@ s_{t+1} & = D_s z_{t+1} + G_s w_{t+1}  \end{aligned}$$
 
 $$z_{t} := \begin{bmatrix} \mu_a  \\ \zeta_{a,t}  \end{bmatrix}, \quad  w_{t} := \begin{bmatrix} w_{\zeta_a,t}    \\ w_{a, t}  \end{bmatrix}, \quad A_z := \begin{bmatrix} 1 & 0 \\  0 & \rho_a \end{bmatrix}$$
 
-$$C_z := \begin{bmatrix}   0 & 0  \\   \sigma_{\zeta_a} & 0  \end{bmatrix} , \quad D_s := \begin{bmatrix} 1 & 1 \end{bmatrix},\quad  G_s := \begin{bmatrix} \sigma_a & 0  \end{bmatrix}$$
+$$C_z := \begin{bmatrix}   0 & 0  \\   \sigma_{\zeta_a} & 0  \end{bmatrix} , \quad D_s := \begin{bmatrix} 1 & 1 \end{bmatrix},\quad  G_s := \begin{bmatrix}  0 & \sigma_a   \end{bmatrix}$$
 
 This choice of matrices $C_z, G_s$ implies that all shocks are
-orthogonal to each other.
+orthogonal to each other, because \( C_z G_s' = 0  \)
 
 $$\begin{bmatrix} \mu_a & \zeta_{a,0}\end{bmatrix}' =: z_0 \sim N(\check{z}_0, \Sigma_0), \quad \text{ with sufficient statistics } \{\check{z}_0, \Sigma_0\}$$
 
