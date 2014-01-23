@@ -28,6 +28,7 @@ E_0 \sum_{t=0}^{\infty}  \beta^t
 \end{equation}
 \]
 
+
 The following, transformed, variables are stationary:
 
 \[
