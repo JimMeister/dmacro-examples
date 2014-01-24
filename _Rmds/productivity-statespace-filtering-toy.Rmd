@@ -47,3 +47,28 @@ Now, the evolution of the state is given by
 ## translation to our toy model ## 
 
 
+\begin{tabular}{|l|c|c|}
+\hline 
+Object & RMT & Here \\ 
+\hline 
+signal & y & s \\ 
+\hline 
+state & x & z \\ 
+\hline 
+state autorrgressive matrix & $A$ & $A_z$ \\ 
+\hline 
+design matrix & $G$ & $D_s$ \\ 
+\hline 
+state shock variance & $Q$ & $CC'$ \\ 
+\hline 
+signal shock variance & $R$ & $GG'$ \\ 
+\hline 
+state prior variance & $\Sigma$ & $\Sigma$ \\ 
+\hline 
+Kalman gain & $K_{\Sigma}$ & $\mathcal{K}(\Sigma)$ \\ 
+\hline 
+foo & goo & moo \\ 
+\hline 
+\end{tabular} 
+
+
