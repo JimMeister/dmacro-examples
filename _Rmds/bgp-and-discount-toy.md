@@ -14,7 +14,7 @@ $$C_t := \frac{\tilde{C}_t}{A_{t-1}  }, \quad  K_t := \frac{\tilde{K}_t}{A_{t-1}
 
 At times we will refer to these scaled variables as the stationary variables. Here is a plot illustrating this
 
-<img src="http://ricardomayerb.github.io/dmacro-examples/figs/bgp-and-discount-toy/consumptionplot1.png" title="center" alt="center" style="display: block; margin: auto;" /><img src="http://ricardomayerb.github.io/dmacro-examples/figs/bgp-and-discount-toy/consumptionplot2.png" title="center" alt="center" style="display: block; margin: auto;" />
+<img src="figure/consumptionplot1.png" title="plot of chunk consumptionplot" alt="plot of chunk consumptionplot" style="display: block; margin: auto;" /><img src="figure/consumptionplot2.png" title="plot of chunk consumptionplot" alt="plot of chunk consumptionplot" style="display: block; margin: auto;" />
 
 
 
@@ -76,7 +76,7 @@ As I showed to you in the presentation of the model, we can treat the problem of
 
 Let's try different values of $\beta$ for $\mu_a=0.003$ and plot the cumulative sum in the deterministic case of $A$:
 
-<img src="http://ricardomayerb.github.io/dmacro-examples/figs/bgp-and-discount-toy/discountplot.png" title="center" alt="center" style="display: block; margin: auto;" />
+<img src="figure/discountplot.png" title="plot of chunk discountplot" alt="plot of chunk discountplot" style="display: block; margin: auto;" />
 
 
 
