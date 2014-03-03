@@ -10,4 +10,4 @@ KnitPost <- function(input, base.url = myjekyllsite) {
   knit(input, envir = parent.frame())
 }
 
-KnitPost("./bgp-and-discount.Rmd")
+KnitPost("./productivity-statespace-filtering-toy.Rmd")
