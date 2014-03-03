@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Kalman Filter with correlated disturbances</title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+</head>
+
+<body>
+<script type="text/x-mathjax-config"> MathJax.Hub.Config({ TeX: { equationNumbers: {autoNumber: "AMS"} } });       
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML-full.js"></script>
+
+<h1>Kalman Filter with correlated disturbances</h1>
+
+<p>Following Sargent and Ljunqvist, 2013,</p>
+
+<p>\[ 
+\begin{align}
+x_{t+1} = A x_{t} + C w_{t+1}  \\
+y_{t+1} = G x_{t} + D w_{t+1}, \quad \text{ where } \quad w \sim N(0,I)
+\end{align}
+ \]</p>
+
+<p>The decision maker observes \( (y_t, \ldots, y_1) \) but not \( (x_{t-1}, \ldots,x_0) \).</p>
+
+<p>Derivation of the kalman gain</p>
+
+<p>\[ 
+  E(x_0 -\hat{x_0})(x_0 -\hat{x_0})', \quad y_1 \sim N(G \hat{x}_0, G \Sigma G' + DD')   
+ \]
+\[ a_1 = y_1 - E[y_1] =  y_1 - G \hat{x}_0  \]</p>
+
+<p>\[  (x_0 - \hat{x}_0) = L_0 (y_1 - G \hat{x}_0) + \eta    \]</p>
+
+<p>\[   E(x_0 - \hat{x}_0)(y_1 - G \hat{x}_0)' =  E(x_0 - \hat{x}_0)(G (x_0- \hat{x}_0) + D w_1)' = E(x_0 - \hat{x}_0)E(x_0 - \hat{x}_0)'G' = \Sigma_0 G' \]</p>
+
+<p>\[   E(y_1 - G \hat{x}_0)(y_1 - G \hat{x}_0)' = G \Sigma_0 G' + DD'   \]</p>
+
+<p>\[ L_0 =  \Sigma_0 G' (G \Sigma_0 G' + DD' )^{-1}  \]</p>
+
+<p>\[  x_1 = A_0 \hat{x}_0 + A_0 (x_0 - \hat{x}_0) + C w_1   \]</p>
+
+<p>\[  x_1 = A_0 \hat{x}_0 + A_0 L_0 (y_1 - G \hat{x}_0) + A_0 \eta  + C w_1   \]</p>
+
+<p>\[  E[x_1|y_1] = A_0 \hat{x}_0 + A_0 L_0 (y_1 - G \hat{x}_0) + A_0 E[\eta| y_1]  + E[C w_1|y_1]    \]</p>
+
+<p>And since \(  E[\eta| y_1] =0  \) and since</p>
+
+<p>\[ 
+E[C w_1|y_1] = E[C w_1] + E[C w_1 (G x_0 + D w_1 - G \hat{x}_0)'](E(y_1 - G \hat{x}_0)(y_1 - G \hat{x}_0)')^{-1} (y_1 - G \hat{x}_0)
+ \]</p>
+
+<p>\[ 
+E[C w_1|y_1] = CD' (G \Sigma_0 G' + DD')^{-1} (y_1 - G \hat{x}_0)
+ \]</p>
+
+<p>\[  E[x_1|y_1] = A_0 \hat{x}_0 + (CD' + A_0 \Sigma_0 G')(G \Sigma_0 G' + DD')^{-1}  (y_1 - G \hat{x}_0)     \]</p>
+
+<p>\[  E[x_1|y_1] = A_0 \hat{x}_0 + (CD' + A_0 \Sigma_0 G')(G \Sigma_0 G' + DD')^{-1}  a_1     \]</p>
+
+<p>\[  \hat{x}_1 = E[x_1|y_1] = A_0 \hat{x}_0 + K_0  a_1     \]</p>
+
+<p>\[   where K_0 = (CD' + A_0 \Sigma_0 G')(G \Sigma_0 G' + DD')^{-1}  \]</p>
+
+<p>Recursion for Sigma:</p>
+
+<p>\[  x_1 - \hat{x}_1  = A_0 (x_0 - \hat{x}_0) + C w_1 - K_0 a_1  \]</p>
+
+<p>\[  x_1 - \hat{x}_1  = A_0 (x_0 - \hat{x}_0) + C w_1 - K_0 (G(x_0 - \hat{x}_0) + D w_1)  \]</p>
+
+<p>\[  x_1 - \hat{x}_1  = (A_0 - K_0 G)  (x_0 - \hat{x}_0) + (C - K_0 D) w_1  \]</p>
+
+<p>\[  E(x_1 - \hat{x}_1)(x_1 - \hat{x}_1)' = E [ (A_0 - K_0 G)  (x_0 - \hat{x}_0) + (C - K_0 D) w_1][ (A_0 - K_0 G)  (x_0 - \hat{x}_0) + (C - K_0 D) w_1]'  \]</p>
+
+<p>\[  E(x_1 - \hat{x}_1)(x_1 - \hat{x}_1)' = E [(A_0 - K_0 G)  (x_0 - \hat{x}_0) + (C - K_0 D) w_1][ (x_0 - \hat{x}_0)' (A_0 - K_0 G)  ' + w_1'(C - K_0 D)']  \]</p>
+
+<p>\[ \Sigma_1 =  E(x_1 - \hat{x}_1)(x_1 - \hat{x}_1)' = (A_0 - K_0 G) \Sigma_0 (A_0 - K_0 G) +  (C - K_0 D)(C - K_0 D)'   \]</p>
+
+</body>
+
+</html>
+
